@@ -1,30 +1,38 @@
-// testimonial data
-const testimonialData = [
-  {
-    image: '/t-avt-1.png',
-    name: 'Anne Smith',
-    position: 'Customer',
-    message:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
-  },
-  {
-    image: '/t-avt-2.png',
-    name: 'Jane Doe',
-    position: 'Customer',
-    message:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
-  },
-  {
-    image: '/t-avt-3.png',
-    name: 'Jhon Doe',
-    position: 'Customer',
-    message:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
-  },
-];
+import {motion} from 'framer-motion'
 
-const TestimonialSlider = () => {
-  return <div>Testimonial Slider</div>;
+//variants
+const transitionVariants = {
+  initial: {
+    x: '100%',
+    width: '100%'
+  },
+  animate: {
+    x: '0%',
+    width: '0%'
+  },
+  exit: {
+    x: ['0%', '100%'],
+    width: ['0%', '100%'],
+  }
+}
+
+const Transition = () => {
+  return (
+    <>
+      <motion.div className='fixed top-0 bottom-0 right-full w-screen h-screen z-30 bg-[#2e2257]'
+        variants={transitionVariants} initial="initial" animate="animate" exit="exit" transition={{delay: 0.2, duration: 0.5, ease: 'easeInOut'}}>
+      </motion.div>
+
+      <motion.div className='fixed top-0 bottom-0 right-full w-screen h-screen z-20 bg-[#3b2d71]'
+        variants={transitionVariants} initial="initial" animate="animate" exit="exit" transition={{delay: 0.4, duration: 0.5, ease: 'easeInOut'}}>
+      </motion.div>
+
+      <motion.div className='fixed top-0 bottom-0 right-full w-screen h-screen z-10 bg-[#4b3792]'
+        variants={transitionVariants} initial="initial" animate="animate" exit="exit" transition={{delay: 0.6, duration: 0.5, ease: 'easeInOut'}}>
+      </motion.div>
+
+    </>
+  );
 };
 
-export default TestimonialSlider;
+export default Transition;
